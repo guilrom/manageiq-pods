@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-pods:backend-latest-hammer
+FROM guilrom/manageiq-pods:backend-latest-hammer
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
@@ -27,7 +27,8 @@ RUN yum -y install centos-release-scl-rh && \
 
 ## GIT clone service UI repo (SUI)
 RUN mkdir -p ${SUI_ROOT} && \
-    curl -L https://github.com/ManageIQ/manageiq-ui-service/tarball/${REF} | tar vxz -C ${SUI_ROOT} --strip 1
+    # curl -L https://github.com/ManageIQ/manageiq-ui-service/tarball/${REF} | tar vxz -C ${SUI_ROOT} --strip 1
+    curl -L https://github.com/guilrom/manageiq-ui-service/tarball/${REF} | tar vxz -C ${SUI_ROOT} --strip 1
 
 ## Setup environment
 RUN rm -f /etc/httpd/conf.d/ssl.conf && \
