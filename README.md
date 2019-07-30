@@ -3,6 +3,14 @@
 [![Join the chat at https://gitter.im/ManageIQ/manageiq-pods](https://badges.gitter.im/ManageIQ/manageiq-pods.svg)](https://gitter.im/ManageIQ/manageiq-pods?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 **This guide will demo deploying ManageIQ in OpenShift as its example use-case but this method could actually be used in a different container cluster environment**
 
+## Forked project
+
+This fork of the official ManageIQ manageiq-pods project aimes at adding support for API and SUI auth token generation for SSO (SAML, OIDC) user authentication.
+
+It simply holds modified dockerfiles that points to special forks of official ManageIQ projects / modules: 
+- Core ManageIQ app : https://github.com/guilrom/manageiq (which has a modified Gemfile to install a forked API plugin version: https://github.com/guilrom/manageiq-api)
+- Service UI app : https://github.com/guilrom/manageiq-ui-service
+
 ## Purpose
 
 This example gives a base template to deploy a multi-pod ManageIQ appliance with the DB stored in a persistent volume on OpenShift. It provides a step-by-step setup including cluster administrative tasks as well as basic user information and commands. The ultimate goal of the project is to be able to decompose the ManageIQ appliance into several containers running on a pod or a series of pods.
